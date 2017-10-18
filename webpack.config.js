@@ -5,8 +5,7 @@ const fs = require('fs');
 
 module.exports = {
   entry: {
-    index: __dirname + '/src/js/index.js',
-    app: __dirname + '/src/js/app.js'
+    index: __dirname + '/src/js/index.js'
   },
   output: {
     path: __dirname + '/dist/js',
