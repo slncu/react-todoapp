@@ -11,7 +11,6 @@ class AddTodo extends React.Component {
           e.preventDefault()
           if(!input.value.trim()) { return; }
 
-          console.log(this.props);
           this.props.dispatch(addTodo(input.value))
 
           input.value = ''

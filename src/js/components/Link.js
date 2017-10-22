@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getTodoList from '../server'
 
 class Link extends React.Component {
+
   render() {
     if(this.props.active) {
       return <span>{this.props.children}</span>;

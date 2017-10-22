@@ -11,6 +11,9 @@ module.exports = {
     path: __dirname + '/dist/js',
     filename: '[name].js'
   },
+  externals: {
+    milkcocoa: 'MilkCocoa'
+  },
   module: {
     loaders: [
       {

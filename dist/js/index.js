@@ -12594,11 +12594,11 @@ var _Footer = __webpack_require__(75);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _AddTodo = __webpack_require__(78);
+var _AddTodo = __webpack_require__(80);
 
 var _AddTodo2 = _interopRequireDefault(_AddTodo);
 
-var _VisibleTodoList = __webpack_require__(79);
+var _VisibleTodoList = __webpack_require__(81);
 
 var _VisibleTodoList2 = _interopRequireDefault(_VisibleTodoList);
 
@@ -12769,6 +12769,10 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _server = __webpack_require__(78);
+
+var _server2 = _interopRequireDefault(_server);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12836,6 +12840,50 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Server = function () {
+  function Server() {
+    _classCallCheck(this, Server);
+
+    this.milkcocoa = MilkCocoa.connectWithApiKey('eggj90k0fhz.mlkcca.com', 'PEJPEBHFAGGMKBBE', 'agXlZNRYaIYOJSSOJATmMMZCeJggkWYeCRQWSfFK');
+    this.todosDataStore = this.milkcocoa.dataStore('todos');
+  }
+
+  _createClass(Server, [{
+    key: 'getTodoList',
+    value: function getTodoList() {
+      this.todosDataStore.stream().next(function (err, data) {
+        console.log(data);
+        return data;
+      });
+    }
+  }, {
+    key: 'pushTodoList',
+    value: function pushTodoList(props) {
+      //todosDataStore.push()
+    }
+  }]);
+
+  return Server;
+}();
+
+exports.default = Server;
+
+/***/ }),
+/* 79 */,
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -12878,7 +12926,6 @@ var AddTodo = function (_React$Component) {
                 return;
               }
 
-              console.log(_this2.props);
               _this2.props.dispatch((0, _actions.addTodo)(input.value));
 
               input.value = '';
@@ -12902,7 +12949,7 @@ var AddTodo = function (_React$Component) {
 exports.default = (0, _reactRedux.connect)()(AddTodo);
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12916,7 +12963,7 @@ var _reactRedux = __webpack_require__(8);
 
 var _actions = __webpack_require__(16);
 
-var _TodoList = __webpack_require__(80);
+var _TodoList = __webpack_require__(82);
 
 var _TodoList2 = _interopRequireDefault(_TodoList);
 
@@ -12956,7 +13003,7 @@ var VisibleTodoList = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToPro
 exports.default = VisibleTodoList;
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12978,9 +13025,13 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Todo = __webpack_require__(81);
+var _Todo = __webpack_require__(83);
 
 var _Todo2 = _interopRequireDefault(_Todo);
+
+var _server = __webpack_require__(78);
+
+var _server2 = _interopRequireDefault(_server);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13035,7 +13086,7 @@ TodoList.propTypes = {
 exports.default = TodoList;
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
